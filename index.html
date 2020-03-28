@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Covid-19 infection status</title>
+      <meta charset="utf-8"/>
+      <script type="text/javascript" src="node_modules/chart.js/dist/Chart.min.js"></script>
+      <link rel="stylesheet" href="style.css" />
+    </head>
+<body>
+    <h1>Current number of Covid-19 infections</h1>
+    <label for="statistic">Choose a statistic:</label>
+    <select id="statistic" onchange="updateChart(this.selectedIndex);">
+        <option value="1"># of cases</option>
+        <option value="2"># of deaths</option>
+        <option value="3"># of recovered</option>
+        <option value="4"># of active</option>
+    </select>
+    <canvas id="Chart" width="300" height="100"></canvas>
+    <p>Uses NovelCovid API. See <a href='https://github.com/novelcovid/api'>NovelCovid GitHub</a> for data sources.
+    Data retrieved on <span id='date'></span></p>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

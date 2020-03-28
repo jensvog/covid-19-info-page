@@ -1,0 +1,7 @@
+{
+    "name": "covid-19-info-page",
+    "version": "1.0.0",
+    "dependencies": {
+        "chart.js": "^2.9.3"
+    }
+}
