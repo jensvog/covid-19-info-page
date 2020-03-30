@@ -1,4 +1,7 @@
 # covid-19-info-page
+
+![CD](https://github.com/jensvog/covid-19-info-page/workflows/CD/badge.svg?branch=master)
+
 Info website displaying the current covid-19 infection state. The website is currently
 
 * Collecting information from NovelCovid API
