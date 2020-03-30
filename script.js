@@ -8,7 +8,7 @@ function getRandomColor() {
             blue: rand(0,255)};
 };
 
-function updateChart(selectedIndex) {
+function updateChart(selectedIndex, init=true) {
     const area = ['cases', 'deaths', 'recovered', 'active'];
 
     let tempCovidInfo = covidInfo;
@@ -37,7 +37,10 @@ function updateChart(selectedIndex) {
     }
 
     var ctx = document.getElementById('Chart').getContext('2d');
-    var myChart = new Chart(ctx, {
+    if (init == false) {
+        myChart.destroy();
+    }
+    myChart = new Chart(ctx, {
         type: 'horizontalBar',
         data: {
             labels: countryArray,
@@ -74,6 +77,7 @@ document.getElementById('date').innerHTML = today.toLocaleDateString();
 var link = 'https://corona.lmao.ninja/countries'
 var htmlRequest = new XMLHttpRequest();
 var covidInfo = [];
+var myChart;
 
 htmlRequest.open('GET', link);
 htmlRequest.addEventListener('load', responding);
