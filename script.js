@@ -9,11 +9,11 @@ function getRandomColor() {
 };
 
 function updateChart(selectedIndex, init=true) {
-    const area = ['cases', 'deaths', 'recovered', 'active'];
-
-    let tempCovidInfo = covidInfo;
+    //var sel = document.getElementById('statistic');
+    var selected = $('#statistic').get()[0].options[selectedIndex].value;
+    let tempCovidInfo = [...covidInfo];
     tempCovidInfo.sort(function(a, b) {
-        return (b[area[selectedIndex]] - a[area[selectedIndex]]);
+        return (b[selected] - a[selected]);
     });
     tempCovidInfo.length = 10;
 
@@ -21,7 +21,7 @@ function updateChart(selectedIndex, init=true) {
     let infectionArray = [];
     tempCovidInfo.forEach(element => {
         countryArray.push(element.country);
-        infectionArray.push(element[area[selectedIndex]]);
+        infectionArray.push(element[selected]);
     });
 
     bgColors = [];
@@ -45,7 +45,7 @@ function updateChart(selectedIndex, init=true) {
         data: {
             labels: countryArray,
             datasets: [{
-                label: '# of ' + area[selectedIndex],
+                label: '# of ' + area.get(selected),
                 data: infectionArray,
                 backgroundColor: bgColors,
                 borderColor: borderColors,
@@ -78,6 +78,21 @@ var link = 'https://corona.lmao.ninja/countries'
 var htmlRequest = new XMLHttpRequest();
 var covidInfo = [];
 var myChart;
+var area = new Map([
+    ['cases', 'cases'],
+    ['todayCases', 'cases today'],
+    ['casesPerOneMillion', 'cases / million'],
+    ['deaths', 'deaths'],
+    ['todayDeaths', 'deaths today'],
+    ['deathsPerOneMillion', 'deaths / million'],
+    ['recovered', 'recovered'],
+    ['active', 'active cases'],
+    ['critical', 'critical']
+    ]);
+
+area.forEach(function(value, key) {
+    $('#statistic').append('<option value="' + key + '"># of ' + value + '</option>');
+});
 
 htmlRequest.open('GET', link);
 htmlRequest.addEventListener('load', responding);
