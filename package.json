@@ -2,6 +2,22 @@
     "name": "covid-19-info-page",
     "version": "1.0.0",
     "dependencies": {
-        "chart.js": "^2.9.3"
+        "frontend-dependencies": "^1.1.8"
+    },
+    "frontendDependencies": {
+        "target": "static/",
+        "packages": {
+            "jquery": {
+                "version": "3.1.0",
+                "src": "dist/jquery.min.js"
+            },
+            "chart.js": {
+                "version": "^2.9.3",
+                "src": "dist/Chart.bundle.min.js"
+            }
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/frontend-dependencies/index.js"
     }
 }
