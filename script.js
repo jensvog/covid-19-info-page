@@ -67,13 +67,14 @@ function updateChart(selectedIndex, init=true) {
 var responding = function(event) {
     if (htmlRequest.status >= 200 && htmlRequest.status < 300) {
         covidInfo = JSON.parse(htmlRequest.response);
+        var timeUpdated = new Date(covidInfo[0].updated);
+        document.getElementById('date').innerHTML = timeUpdated.toLocaleString();
         updateChart(0);
     } else {
         console.warn(request.statusText, request.responseText);
     }
 }
-var today = new Date();
-document.getElementById('date').innerHTML = today.toLocaleDateString();
+
 var link = 'https://corona.lmao.ninja/countries'
 var htmlRequest = new XMLHttpRequest();
 var covidInfo = [];
