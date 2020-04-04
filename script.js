@@ -71,7 +71,7 @@ var responding = function(event) {
         document.getElementById('date').innerHTML = timeUpdated.toLocaleString();
         updateChart(0);
     } else {
-        console.warn(request.statusText, request.responseText);
+        console.warn(htmlRequest.statusText, htmlRequest.responseText);
     }
 }
 
