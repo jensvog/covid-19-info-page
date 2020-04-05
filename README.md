@@ -8,6 +8,14 @@ Info website displaying the current covid-19 infection state. The website is cur
 * Sorting the data according to category
 * Show top 10 countries in a chart diagram
 
+## Installation
+
+In order to install the dependencies, `npm` is needed. Install the software with:
+
+```
+npm install
+```
+
 ## Deployed site
 
 The deployed website can be found here: http://go.aws/2ydCU3H
