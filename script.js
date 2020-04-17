@@ -75,7 +75,7 @@ var responding = function(event) {
     }
 }
 
-var link = 'https://corona.lmao.ninja/countries'
+var link = 'https://corona.lmao.ninja/v2/countries'
 var htmlRequest = new XMLHttpRequest();
 var covidInfo = [];
 var myChart;
