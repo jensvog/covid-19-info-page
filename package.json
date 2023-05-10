@@ -2,7 +2,7 @@
     "name": "covid-19-info-page",
     "version": "1.0.0",
     "dependencies": {
-        "frontend-dependencies": "^1.1.8"
+        "frontend-dependencies": "^2.0.0"
     },
     "frontendDependencies": {
         "target": "static/",
